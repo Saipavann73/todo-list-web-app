@@ -1,37 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>To-Do List Web App</title>
+    <title>To-Do List | Sai Pavan</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
+    <div class="app-container">
 
-        <h1>My To-Do List</h1>
-        <p class="subtitle">Small steps. Big progress.</p>
+        <!-- Header -->
+        <header class="header">
 
+            <div>
+                <h1>My To-Do List</h1>
+                <p>Small steps. Big progress.</p>
+            </div>
+
+            <button id="themeToggle" class="theme-btn">
+                🌙
+            </button>
+
+        </header>
+
+
+        <!-- Task Input -->
         <div class="input-section">
 
             <input
                 type="text"
                 id="taskInput"
                 placeholder="Add a new task..."
+                autocomplete="off"
             >
 
-            <button id="addBtn">Add</button>
+            <button id="addBtn">
+                Add
+            </button>
 
         </div>
 
+
+        <!-- Statistics -->
+        <div class="stats">
+
+            <div class="stat-card">
+                <span id="totalTasks">0</span>
+                <p>Total Tasks</p>
+            </div>
+
+            <div class="stat-card">
+                <span id="completedTasks">0</span>
+                <p>Completed</p>
+            </div>
+
+            <div class="stat-card">
+                <span id="remainingTasks">0</span>
+                <p>Remaining</p>
+            </div>
+
+        </div>
+
+
+        <!-- Filters -->
+        <div class="filter-section">
+
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="active">
+                Active
+            </button>
+
+            <button class="filter-btn" data-filter="completed">
+                Completed
+            </button>
+
+        </div>
+
+
+        <!-- Task List -->
         <ul id="taskList"></ul>
 
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state">
+
+            <div class="empty-icon">
+                📝
+            </div>
+
+            <h3>No tasks found</h3>
+
+            <p>Add a task and start being productive!</p>
+
+        </div>
+
+
+        <!-- Bottom Actions -->
+        <div class="bottom-section">
+
+            <span id="taskSummary">
+                0 tasks
+            </span>
+
+            <button id="clearCompleted">
+                Clear Completed
+            </button>
+
+        </div>
+
     </div>
+
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

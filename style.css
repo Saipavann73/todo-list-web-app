@@ -1,173 +1,673 @@
+/* ==============================
+   RESET
+============================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* ==============================
+   VARIABLES
+============================== */
+
+:root {
+
+    --background: #667eea;
+
+    --container: #111827;
+
+    --card: #1f2937;
+
+    --input: #273449;
+
+    --text: #ffffff;
+
+    --secondary-text: #9ca3af;
+
+    --primary: #6366f1;
+
+    --primary-hover: #4f46e5;
+
+    --danger: #ef4444;
+
+    --border: #374151;
+
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==============================
+   LIGHT MODE
+============================== */
+
+body.light {
+
+    --background: #eef2ff;
+
+    --container: #ffffff;
+
+    --card: #f3f4f6;
+
+    --input: #f3f4f6;
+
+    --text: #111827;
+
+    --secondary-text: #6b7280;
+
+    --primary: #6366f1;
+
+    --primary-hover: #4f46e5;
+
+    --danger: #dc2626;
+
+    --border: #d1d5db;
+
+    --shadow: rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==============================
+   BODY
+============================== */
+
 body {
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     min-height: 100vh;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
-    background: linear-gradient(
-        135deg,
-        #667eea,
-        #764ba2
-    );
-
     padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--background),
+            #764ba2
+        );
+
+    transition:
+        background 0.4s ease;
 }
 
-.container {
-    width: 100%;
-    max-width: 500px;
 
-    background: #111827;
+/* ==============================
+   MAIN CONTAINER
+============================== */
+
+.app-container {
+
+    width: 100%;
+
+    max-width: 550px;
+
+    background: var(--container);
 
     padding: 30px;
 
-    border-radius: 16px;
+    border-radius: 20px;
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.3);
+        0 20px 50px var(--shadow);
+
+    transition:
+        background 0.4s ease,
+        transform 0.3s ease;
 }
 
-h1 {
-    color: white;
-    text-align: center;
-    margin-bottom: 8px;
-}
 
-.subtitle {
-    color: #aab4c8;
-    text-align: center;
+/* ==============================
+   HEADER
+============================== */
+
+.header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
     margin-bottom: 25px;
 }
 
+.header h1 {
+
+    color: var(--text);
+
+    font-size: 30px;
+
+    margin-bottom: 6px;
+}
+
+.header p {
+
+    color: var(--secondary-text);
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   THEME BUTTON
+============================== */
+
+.theme-btn {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--card);
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.theme-btn:hover {
+
+    transform: rotate(20deg) scale(1.1);
+}
+
+
+/* ==============================
+   INPUT SECTION
+============================== */
+
 .input-section {
+
     display: flex;
+
     gap: 10px;
+
+    margin-bottom: 25px;
 }
 
 #taskInput {
+
     flex: 1;
 
-    padding: 14px;
+    padding: 14px 16px;
 
-    border: none;
+    border: 2px solid transparent;
+
     outline: none;
 
-    border-radius: 8px;
+    border-radius: 10px;
 
-    background: #1f2937;
-    color: white;
+    background: var(--input);
+
+    color: var(--text);
 
     font-size: 15px;
+
+    transition:
+        border 0.3s ease,
+        background 0.3s ease;
+}
+
+#taskInput:focus {
+
+    border-color: var(--primary);
 }
 
 #taskInput::placeholder {
-    color: #9ca3af;
+
+    color: var(--secondary-text);
 }
 
+
 #addBtn {
-    padding: 14px 20px;
+
+    padding: 14px 22px;
 
     border: none;
-    border-radius: 8px;
 
-    background: #6366f1;
+    border-radius: 10px;
+
+    background: var(--primary);
+
     color: white;
 
     font-weight: bold;
 
     cursor: pointer;
 
-    transition: 0.3s;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
 }
 
 #addBtn:hover {
-    background: #4f46e5;
+
+    background: var(--primary-hover);
+
     transform: translateY(-2px);
 }
 
-#taskList {
-    list-style: none;
-    margin-top: 25px;
+#addBtn:active {
+
+    transform: scale(0.95);
 }
 
-.task {
+
+/* ==============================
+   STATISTICS
+============================== */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.stat-card {
+
+    background: var(--card);
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.stat-card:hover {
+
+    transform: translateY(-3px);
+}
+
+.stat-card span {
+
+    display: block;
+
+    color: var(--primary);
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-bottom: 4px;
+}
+
+.stat-card p {
+
+    color: var(--secondary-text);
+
+    font-size: 12px;
+}
+
+
+/* ==============================
+   FILTERS
+============================== */
+
+.filter-section {
+
     display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+
+    padding: 8px 16px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: transparent;
+
+    color: var(--secondary-text);
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+}
+
+.filter-btn:hover {
+
+    color: var(--text);
+
+    border-color: var(--primary);
+}
+
+.filter-btn.active {
+
+    background: var(--primary);
+
+    color: white;
+
+    border-color: var(--primary);
+}
+
+
+/* ==============================
+   TASK LIST
+============================== */
+
+#taskList {
+
+    list-style: none;
+}
+
+
+/* ==============================
+   TASK
+============================== */
+
+.task {
+
+    display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
-    background: #1f2937;
+    gap: 10px;
+
+    background: var(--card);
 
     padding: 14px;
 
     margin-bottom: 10px;
 
-    border-radius: 8px;
+    border-radius: 10px;
 
-    color: white;
+    color: var(--text);
 
-    transition: 0.3s;
+    animation:
+        taskAppear 0.3s ease;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
 
 .task:hover {
-    transform: translateX(3px);
+
+    transform: translateX(4px);
 }
+
+
+@keyframes taskAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-10px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==============================
+   TASK LEFT
+============================== */
 
 .task-left {
+
     display: flex;
+
     align-items: center;
+
     gap: 12px;
+
+    min-width: 0;
 }
 
+
+/* ==============================
+   CHECKBOX
+============================== */
+
 .task-checkbox {
-    width: 20px;
-    height: 20px;
+
+    width: 19px;
+
+    height: 19px;
 
     cursor: pointer;
+
+    accent-color:
+        var(--primary);
+
+    flex-shrink: 0;
+}
+
+
+/* ==============================
+   TASK TEXT
+============================== */
+
+.task-text {
+
+    word-break: break-word;
+
+    transition:
+        color 0.3s ease;
 }
 
 .completed {
-    text-decoration: line-through;
-    color: #6b7280;
+
+    text-decoration:
+        line-through;
+
+    color:
+        var(--secondary-text);
 }
 
+
+/* ==============================
+   DELETE BUTTON
+============================== */
+
 .delete-btn {
-    background: transparent;
 
     border: none;
 
-    color: #ef4444;
+    background: transparent;
+
+    color: var(--danger);
 
     font-size: 18px;
 
     cursor: pointer;
 
-    transition: 0.2s;
+    padding: 5px;
+
+    transition:
+        transform 0.2s ease;
 }
 
 .delete-btn:hover {
-    color: #dc2626;
-    transform: scale(1.2);
+
+    transform:
+        scale(1.2);
 }
+
+
+/* ==============================
+   EMPTY STATE
+============================== */
+
+.empty-state {
+
+    text-align: center;
+
+    padding: 35px 10px;
+
+    color: var(--secondary-text);
+}
+
+.empty-icon {
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+.empty-state h3 {
+
+    color: var(--text);
+
+    margin-bottom: 6px;
+}
+
+.empty-state p {
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   BOTTOM SECTION
+============================== */
+
+.bottom-section {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 20px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+#taskSummary {
+
+    color:
+        var(--secondary-text);
+
+    font-size: 13px;
+}
+
+#clearCompleted {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--danger);
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+#clearCompleted:hover {
+
+    opacity: 0.7;
+}
+
+
+/* ==============================
+   MOBILE RESPONSIVE
+============================== */
 
 @media (max-width: 500px) {
 
-    .container {
+    body {
+
+        padding: 12px;
+    }
+
+    .app-container {
+
         padding: 20px;
+
+        border-radius: 15px;
+    }
+
+    .header h1 {
+
+        font-size: 25px;
     }
 
     .input-section {
+
         flex-direction: column;
     }
 
     #addBtn {
+
         width: 100%;
     }
+
+    .stats {
+
+        gap: 6px;
+    }
+
+    .stat-card {
+
+        padding: 12px 5px;
+    }
+
+    .stat-card span {
+
+        font-size: 20px;
+    }
+
+    .filter-btn {
+
+        padding:
+            7px 11px;
+
+        font-size: 12px;
+    }
+
 }
